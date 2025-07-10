@@ -12,7 +12,7 @@ export default function handler(req, res) {
 
   const { text } = req.body || {};
   if (typeof text !== 'string') {
-    return res.status(400).json({ error: 'Missing or invalid "text" field.' });
+    return res.status(400).json({ error: 'Missing or invalid \"text\" field.' });
   }
 
   res.status(200).json({ count: text.length });
