@@ -1,0 +1,64 @@
+﻿{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Character Count API",
+    "version": "1.0.0",
+    "description": "Counts the number of characters in a text input"
+  },
+  "auth": {
+    "type": "bearer",
+    "authorization_type": "bearer",
+    "verification_tokens": {
+      "openai": "2f6ebdb3-a963-45b1-a98e-ce12cb6f75b0"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://character-count-3ibprwyqn-joes-projects-8392c2cc.vercel.app"
+    }
+  ],
+  "paths": {
+    "/api/count": {
+      "post": {
+        "operationId": "countCharacters",
+        "summary": "Count characters in text",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "string",
+                    "description": "The text to count characters from"
+                  }
+                },
+                "required": ["text"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Character count result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "count": {
+                      "type": "integer",
+                      "description": "The number of characters"
+                    }
+                  },
+                  "required": ["count"]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
