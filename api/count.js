@@ -1,3 +1,6 @@
+console.log("Vercel injected token:", process.env.API_TOKEN);
+console.log("Incoming Authorization header:", req.headers.authorization);
+
 export default function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed. Use POST.' });
