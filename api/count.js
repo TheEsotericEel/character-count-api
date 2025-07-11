@@ -11,6 +11,9 @@ export default function handler(req, res) {
   }
 
   const { text } = req.body || {};
+
+  console.log('Received text:', req.body.text, '| Length:', req.body.text.length);
+
   if (typeof text !== 'string') {
     return res.status(400).json({ error: 'Missing or invalid "text" field.' });
   }
